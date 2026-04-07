@@ -61,11 +61,12 @@ const useResizeObserver = (
 ) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const win = window;
 
-    if (!("ResizeObserver" in window)) {
-      window.addEventListener("resize", callback);
+    if (typeof ResizeObserver === "undefined") {
+      win.addEventListener("resize", callback);
       callback();
-      return () => window.removeEventListener("resize", callback);
+      return () => win.removeEventListener("resize", callback);
     }
 
     const observers = elements
