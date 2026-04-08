@@ -13,28 +13,28 @@ export function About({ aboutText }: AboutProps) {
   const content = aboutText?.trim() || fallbackAboutText;
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      <div className="container px-4 mx-auto relative z-10">
+    <section id="about" className="relative py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden">
+      <div className="container px-4 sm:px-6 mx-auto relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="glass rounded-3xl p-10 md:p-16 relative overflow-hidden"
+            className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden"
           >
             {/* Subtle inner glow */}
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
             
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 text-white">
               About <span className="text-white/40">Me.</span>
             </h2>
             
-            <p className="text-xl md:text-2xl leading-relaxed text-white/80 font-light mix-blend-plus-lighter">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/80 font-light mix-blend-plus-lighter">
               {content}
             </p>
 
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {[
                 { label: "Experience", value: "1+ Years" },
                 { label: "Projects", value: "10+" },
@@ -47,10 +47,10 @@ export function About({ aboutText }: AboutProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 + 0.3 }}
-                  className="space-y-2 border-l border-white/10 pl-6"
+                  className="space-y-1.5 sm:space-y-2 border-l border-white/10 pl-3 sm:pl-4 md:pl-6"
                 >
-                  <p className="text-3xl font-light text-white">{stat.value}</p>
-                  <p className="text-sm text-white/40 uppercase tracking-widest">{stat.label}</p>
+                  <p className="text-2xl sm:text-3xl font-light text-white">{stat.value}</p>
+                  <p className="text-[11px] sm:text-xs text-white/40 uppercase tracking-[0.16em] sm:tracking-widest">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

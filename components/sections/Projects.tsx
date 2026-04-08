@@ -81,22 +81,22 @@ export function Projects({ data }: { data?: ProjectItem[] }) {
   const displayData = data && data.length > 0 ? data : projects;
 
   return (
-    <section id="projects" className="relative py-32">
-      <div className="container px-4 mx-auto">
+    <section id="projects" className="relative py-20 sm:py-24 md:py-28 lg:py-32">
+      <div className="container px-4 sm:px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24 flex flex-col items-end text-right"
+          className="mb-12 sm:mb-16 md:mb-24 flex flex-col md:items-end md:text-right"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             Featured <span className="text-white/40">Work.</span>
           </h2>
           <div className="w-24 h-1 bg-white/20 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:auto-rows-fr gap-6 relative z-10 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:auto-rows-fr gap-4 sm:gap-5 lg:gap-6 relative z-10 items-stretch">
           {displayData.map((project, index) => {
             const currentTech = project.techStack || project.tech || [];
             const currentColor = project.color || "from-white/10 to-transparent";
@@ -108,29 +108,29 @@ export function Projects({ data }: { data?: ProjectItem[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: index * 0.1 }}
-              className="group relative h-full min-h-[430px] glass rounded-3xl p-8 flex flex-col justify-between overflow-hidden hover-trigger transition-all duration-500 hover:-translate-y-1 hover:bg-white/10"
+              className="group relative h-full min-h-[340px] sm:min-h-[390px] lg:min-h-[430px] glass rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col justify-between overflow-hidden hover-trigger transition-all duration-500 hover:-translate-y-1 hover:bg-white/10"
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${currentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
 
               <div className="flex-1">
-                <div className="flex gap-2 flex-wrap mb-6">
+                <div className="flex gap-2 flex-wrap mb-4 sm:mb-6">
                   {currentTech.map((t, i) => (
-                    <span key={i} className="text-xs font-mono px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/60">
+                    <span key={i} className="text-[11px] sm:text-xs font-mono px-2.5 sm:px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/60">
                       {t}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-white/90 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2.5 sm:mb-3 group-hover:text-white/90 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-white/50 leading-relaxed text-sm">
+                <p className="text-white/50 leading-relaxed text-sm sm:text-[15px]">
                   {project.description}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
-                <button className="flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+              <div className="flex items-center justify-between mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10">
+                <button className="flex items-center gap-2 text-xs sm:text-sm font-medium text-white/70 group-hover:text-white transition-colors">
                   View Case Study <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
               </div>

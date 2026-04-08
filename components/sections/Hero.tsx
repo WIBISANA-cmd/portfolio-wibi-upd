@@ -39,7 +39,10 @@ export function Hero({ profile }: HeroProps) {
   const subtitle = profile?.subtitle?.trim() || fallbackSubtitle;
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-12"
+    >
       <div className="absolute inset-0 pointer-events-auto">
         <MagicRings
           color="#ffffff"
@@ -68,13 +71,13 @@ export function Hero({ profile }: HeroProps) {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/35 pointer-events-none" />
 
-      <div className="container px-4 mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container px-4 sm:px-6 mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+            className="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.04] mb-5 sm:mb-6"
           >
             <BlurText
               as="span"
@@ -87,7 +90,7 @@ export function Hero({ profile }: HeroProps) {
               threshold={heroTextMotion.threshold}
               rootMargin={heroTextMotion.rootMargin}
             />
-            <span className="text-white relative">
+            <span className="text-white relative inline-block">
               <BlurText
                 as="span"
                 text={secondLineName || firstLineName}
@@ -98,11 +101,11 @@ export function Hero({ profile }: HeroProps) {
                 threshold={heroTextMotion.threshold}
                 rootMargin={heroTextMotion.rootMargin}
               />
-              <motion.span 
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-                className="absolute -bottom-2 left-0 h-1 bg-white/20 rounded-full"
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-1 bg-white/20 rounded-full origin-center"
               />
             </span>
           </motion.h1>
@@ -111,7 +114,7 @@ export function Hero({ profile }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 text-xl text-white/60 mb-10"
+            className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-base sm:text-lg md:text-xl text-white/60 mb-8 sm:mb-10 px-2"
           >
             <BlurText
               as="span"
@@ -125,7 +128,7 @@ export function Hero({ profile }: HeroProps) {
               rootMargin={heroTextMotion.rootMargin}
             />
             <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
-            <span>{subtitle}</span>
+            <span className="text-center sm:text-left">{subtitle}</span>
           </motion.div>
 
           <motion.div
@@ -133,7 +136,7 @@ export function Hero({ profile }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full text-lg font-bold overflow-hidden transition-transform hover:scale-105 active:scale-95">
+            <button className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto min-h-12 px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black rounded-full text-base sm:text-lg font-bold overflow-hidden transition-transform hover:scale-105 active:scale-95">
               <span className="relative z-10">View Projects</span>
               <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
               <div className="absolute inset-0 bg-white/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />

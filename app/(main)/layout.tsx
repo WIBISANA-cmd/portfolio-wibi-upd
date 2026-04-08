@@ -1,23 +1,6 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
 import { SmoothScroller } from "@/components/layout/SmoothScroller";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Dwi Agus Wibisana - Premium Portfolio",
-  description: "Senior Frontend Architect & UI/UX Engineer",
-};
+import { WebsitePreloader } from "@/components/layout/WebsitePreloader";
 
 export default function RootLayout({
   children,
@@ -25,16 +8,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden md:cursor-default">
-        <CustomCursor />
-        <SmoothScroller>
-          {children}
-        </SmoothScroller>
-      </body>
-    </html>
+    <>
+      <WebsitePreloader />
+      <CustomCursor />
+      <SmoothScroller>{children}</SmoothScroller>
+    </>
   );
 }

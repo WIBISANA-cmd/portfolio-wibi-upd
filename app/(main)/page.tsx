@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
+import { Skills, type SkillCategory } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { Navbar } from "@/components/layout/Navbar";
@@ -27,7 +28,7 @@ async function getPortfolioData() {
       profile: null as ProfileData | null,
       experiences: [],
       projects: [],
-      skills: [],
+      skills: [] as SkillCategory[],
     };
   }
 
@@ -36,7 +37,7 @@ async function getPortfolioData() {
       client.fetch<ProfileData | null>(getProfileQuery),
       client.fetch(getExperienceQuery),
       client.fetch(getProjectsQuery),
-      client.fetch(getSkillsQuery),
+      client.fetch<SkillCategory[]>(getSkillsQuery),
     ]);
 
     return { profile, experiences, projects, skills };
@@ -46,13 +47,13 @@ async function getPortfolioData() {
       profile: null as ProfileData | null,
       experiences: [],
       projects: [],
-      skills: [],
+      skills: [] as SkillCategory[],
     };
   }
 }
 
 export default async function Home() {
-  const { profile, experiences, projects } = await getPortfolioData();
+  const { profile, experiences, projects, skills } = await getPortfolioData();
 
   return (
     <>
@@ -61,6 +62,7 @@ export default async function Home() {
         <Hero profile={profile} />
         <About aboutText={profile?.about} />
         <Experience data={experiences} />
+        <Skills data={skills} />
         <Projects data={projects} />
         <Contact />
       </main>
