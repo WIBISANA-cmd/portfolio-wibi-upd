@@ -1,8 +1,12 @@
-'use client'
+import { notFound } from "next/navigation";
 
-import { NextStudio } from 'next-sanity/studio'
-import config from '../../../../sanity.config'
+const isStudioEnabled = process.env.ENABLE_STUDIO === "true";
 
-export default function StudioPage() {
-  return <NextStudio config={config} />
+export default async function StudioPage() {
+  if (!isStudioEnabled) {
+    notFound();
+  }
+
+  const StudioPageClient = (await import("./StudioPageClient")).default;
+  return <StudioPageClient />;
 }

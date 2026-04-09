@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Beams from "@/components/Beams";
+import dynamic from "next/dynamic";
 import { useSectionInView } from "@/hooks/useSectionInView";
+
+const Beams = dynamic(() => import("@/components/Beams"), {
+  ssr: false,
+});
 
 const experiences: ExperienceItem[] = [
   {

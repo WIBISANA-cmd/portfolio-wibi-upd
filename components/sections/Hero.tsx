@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
 import BlurText from "@/components/BlurText";
-import MagicRings from "@/components/MagicRings";
 import { useSectionInView } from "@/hooks/useSectionInView";
+
+const MagicRings = dynamic(() => import("@/components/MagicRings"), {
+  ssr: false,
+});
 
 type HeroProps = {
   profile?: {
