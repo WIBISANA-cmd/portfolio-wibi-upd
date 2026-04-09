@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import meImage from "@/app/me.png";
 
 type AboutProps = {
   aboutText?: string | null;
@@ -15,13 +17,13 @@ export function About({ aboutText }: AboutProps) {
   return (
     <section id="about" className="relative py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden">
       <div className="container px-4 sm:px-6 mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden"
+            className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden max-w-4xl mr-auto"
           >
             {/* Subtle inner glow */}
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
@@ -33,6 +35,16 @@ export function About({ aboutText }: AboutProps) {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/80 font-light mix-blend-plus-lighter">
               {content}
             </p>
+
+            <div className="mt-6 sm:mt-8">
+              <a
+                href="/cv-wibisana.pdf"
+                download
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm sm:text-base font-medium text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              >
+                Download CV
+              </a>
+            </div>
 
             <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {[
@@ -54,6 +66,21 @@ export function About({ aboutText }: AboutProps) {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="relative mt-8 sm:mt-10 md:mt-12 lg:mt-0 w-full max-w-[360px] md:max-w-[440px] mx-auto lg:mx-0 lg:absolute lg:right-[-24px] xl:right-[-36px] 2xl:right-[-48px] lg:bottom-0 lg:w-[380px] xl:w-[460px] 2xl:w-[520px]"
+          >
+            <Image
+              src={meImage}
+              alt="Foto profil Wibisana"
+              className="w-full h-auto object-cover"
+              priority
+            />
           </motion.div>
         </div>
       </div>

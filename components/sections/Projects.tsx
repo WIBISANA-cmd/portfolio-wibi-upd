@@ -7,37 +7,37 @@ const projects: ProjectItem[] = [
   {
     title: "Portal Penulis Deepublish",
     description: "Platform terintegrasi untuk penulis melacak naskah, royalti, dan proses penerbitan buku secara real-time.",
-    tech: ["Laravel", "React", "PostgreSQL"],
+    tech: ["Laravel", "Bootstrap", "PostgreSQL"],
     color: "from-blue-500/20 to-indigo-500/0",
   },
   {
     title: "Villa Deepublish",
     description: "Sistem reservasi dan manajemen properti Villa eksklusif dengan integrasi kalender dan pembayaran.",
-    tech: ["Next.js", "TailwindCSS", "Prisma"],
+    tech: ["Laravel","Vue.js", "TailwindCSS", "Postgresql"],
     color: "from-yellow-500/20 to-lime-500/0",
   },
   {
     title: "General Affairs System",
     description: "Digitalisasi sistem manajemen aset, inventory kantor, dan tracking pengajuan logistik perusahaan.",
-    tech: ["Laravel", "Livewire", "MySQL"],
+    tech: ["Laravel", "Tailwindcss","React", "Postgresql"],
     color: "from-slate-500/20 to-gray-500/0",
   },
   {
     title: "Deepublish Web Platform",
     description: "Pengembangan dan optimalisasi platform utama Deepublish untuk e-commerce buku dan company profile.",
-    tech: ["WordPress", "PHP", "MySQL"],
+    tech: ["Laravel", "Bootstrap", "Postgresql"],
     color: "from-blue-600/20 to-cyan-600/0",
   },
   {
     title: "HRIS & Portal Karyawan",
     description: "Sistem Informasi SDM komprehensif mengelola absensi, payroll, dan performance review karyawan.",
-    tech: ["Next.js", "Laravel", "MySQL", "TailwindCSS"],
+    tech: ["Laravel", "Bootstrap", "Postgresql"],
     color: "from-emerald-500/20 to-teal-500/0",
   },
   {
     title: "CRM Deepublish Store",
     description: "Customer Relationship Management khusus operasional e-commerce, menangani ribuan interaksi pelanggan.",
-    tech: ["React", "Node.js", "MongoDB"],
+    tech: ["Laravel", "Bootstrap", "Postgresql"],
     color: "from-purple-500/20 to-pink-500/0",
   },
   {
@@ -55,7 +55,7 @@ const projects: ProjectItem[] = [
   {
     title: "HRIS Nusa Daya",
     description: "Sistem HR *end-to-end* yang disesuaikan khusus untuk operasional perusahaan kelistrikan regional.",
-    tech: ["PHP", "Laravel", "Vue.js", "MySQL"],
+    tech: ["PHP", "Laravel", "React.js", "MySQL"],
     color: "from-cyan-500/20 to-sky-500/0",
   }
 ];
